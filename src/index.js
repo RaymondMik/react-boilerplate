@@ -1,13 +1,25 @@
-+ import './style.css';
+//import './style.css';
+import './styles/app.sass';
+import { returnLogo, returnText } from './components/module.js';
+import NasaLogo from './assets/images/NASA_logo.png'
 
-  function component() {
-    var element = document.createElement('div');
+function renderLogo() {
+    var img = document.createElement('img');
 
-    // Lodash, now imported by this script
-    element.innerHTML = 'Buuu'
-+   element.classList.add('myClass');
+    img.src = returnLogo(NasaLogo);
+    img.classList.add('imgClass');
 
-    return element;
-  }
+    return img;
+}
 
-  document.body.appendChild(component());
+function renderParagraph() {
+    var paragraph = document.createElement('p');
+
+    paragraph.innerHTML = returnText();
+    paragraph.classList.add('pClass');
+
+    return paragraph;
+}
+
+document.body.appendChild(renderLogo());
+document.body.appendChild(renderParagraph());
