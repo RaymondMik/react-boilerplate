@@ -54,7 +54,9 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
-      title: 'Webpack test'
+      title: 'My Redux/React App',
+      filename: 'index.html',
+      template: 'src/index.html'
     }),
     new CleanWebpackPlugin(['dist'])
   ]

@@ -29,7 +29,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           {loader: 'babel-loader'}
@@ -51,7 +51,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack test'
+      title: 'My Redux/React App',
+      filename: 'index.html',
+      template: 'src/index.html'
     }),
     new CleanWebpackPlugin(['dist']),
     new BrowserSyncPlugin(

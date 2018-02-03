@@ -1,25 +1,42 @@
-//import './style.css';
+import * as React from 'react';
+import { render } from 'react-dom';
+import { bindActionCreators } from 'redux';
+import { Provider, connect } from 'react-redux';
 import './styles/app.sass';
-import { returnLogo, returnText } from './components/module.js';
-import NasaLogo from './assets/images/NASA_logo.png'
+import * as actionCreators from './actions';
+import store from './store';
+import App from './components/App';
 
-function renderLogo() {
-    var img = document.createElement('img');
+/**
+ * Takes the Redux Store state and returns the props for the React app.
+ * @param {Object} state - The Redux Store state.
+ * @returns {Object} props for the Presentation Components.
+ */
+export const mapStateToProps = (state)  => {
+    return {
+        state
+    };
+};
 
-    img.src = returnLogo(NasaLogo);
-    img.classList.add('imgClass');
+/**
+ * Wrap Redux Actions into a dispatch call so they may be invoked directly in the React app.
+ * @param {Function} dispatch - The Redux Store dispatch method.
+ * @returns {Object} action creators wrapped into a dispatch().
+ */
+export const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actionCreators, dispatch);
+};
 
-    return img;
-}
+/**
+ * Connect Redux state and actions to the React application.
+ */
+const BaseComponent = connect(mapStateToProps, mapDispatchToProps)(App);
 
-function renderParagraph() {
-    var paragraph = document.createElement('p');
-
-    paragraph.innerHTML = returnText();
-    paragraph.classList.add('pClass');
-
-    return paragraph;
-}
-
-document.body.appendChild(renderLogo());
-document.body.appendChild(renderParagraph());
+/**
+ * Render React application
+ */
+render((
+	<Provider store={store}>
+        <BaseComponent />
+	</Provider>
+	), document.getElementById('application'));

@@ -1,4 +1,4 @@
 {
-    "presets": ["env"],
-    "plugins": ["syntax-dynamic-import"]
+    "presets": ["react"],
+    "plugins": ["syntax-dynamic-import", "transform-object-rest-spread"]
 }
