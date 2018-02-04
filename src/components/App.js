@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const App = () => {
-
+const App = (props) => {
+    console.log(props);
     return (
         <div>
             <p>Hello world!</p>

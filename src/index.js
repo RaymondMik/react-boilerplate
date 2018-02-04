@@ -2,9 +2,9 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { Provider, connect } from 'react-redux';
-import './styles/app.sass';
 import * as actionCreators from './actions';
 import store from './store';
+import './styles/app.sass';
 import App from './components/App';
 
 /**
@@ -12,7 +12,7 @@ import App from './components/App';
  * @param {Object} state - The Redux Store state.
  * @returns {Object} props for the Presentation Components.
  */
-export const mapStateToProps = (state)  => {
+const mapStateToProps = (state)  => {
     return {
         state
     };
@@ -23,7 +23,7 @@ export const mapStateToProps = (state)  => {
  * @param {Function} dispatch - The Redux Store dispatch method.
  * @returns {Object} action creators wrapped into a dispatch().
  */
-export const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(actionCreators, dispatch);
 };
 
@@ -35,8 +35,11 @@ const BaseComponent = connect(mapStateToProps, mapDispatchToProps)(App);
 /**
  * Render React application
  */
-render((
-	<Provider store={store}>
+
+//const store = initStore();//
+
+render(
+	(<Provider store={store}>
         <BaseComponent />
-	</Provider>
-	), document.getElementById('application'));
+	</Provider>),
+	document.getElementById('application'));
