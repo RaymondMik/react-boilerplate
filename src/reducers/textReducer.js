@@ -1,12 +1,12 @@
 import { ADD_TEXT } from '../actions';
 
-const exampleReducer = (state = {text: 'pupu'}, action) => {
+const text = (state = [], action) => {
     switch (action.type) {
         case ADD_TEXT:
-            return { ...state, ...action.text };
+            return [ ...state, action.text ];
         default:
             return state;
     }
 };
 
-export default exampleReducer;
+export default text;

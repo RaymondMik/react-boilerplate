@@ -6,6 +6,7 @@ import * as actionCreators from './actions';
 import store from './store';
 import './styles/app.sass';
 import App from './components/App';
+import { addText } from './actions';
 
 /**
  * Takes the Redux Store state and returns the props for the React app.
@@ -14,7 +15,7 @@ import App from './components/App';
  */
 const mapStateToProps = (state)  => {
     return {
-        state
+        text: state.text
     };
 };
 
@@ -32,12 +33,11 @@ const mapDispatchToProps = (dispatch) => {
  */
 const BaseComponent = connect(mapStateToProps, mapDispatchToProps)(App);
 
+store.dispatch(addText('ciao ciao'));
+
 /**
  * Render React application
  */
-
-//const store = initStore();//
-
 render(
 	(<Provider store={store}>
         <BaseComponent />

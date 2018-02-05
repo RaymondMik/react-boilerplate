@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import exampleReducer from './exampleReducer';
+import text from './textReducer';
 
-const reducers = combineReducers({ exampleReducer });
+const reducers = combineReducers({ text });
 
 export default reducers;
