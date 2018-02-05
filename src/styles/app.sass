@@ -1,17 +1,10 @@
-$body-color: tomato
+@import base/index
 
-@font-face 
-   font-family: 'MyFont'
-   src:  url('../assets/fonts/Abuget.ttf') format('truetype')
-   font-weight: 600
-   font-style: normal
-
-body 
-    width: 100%
++font-face('MyCustomFont', 'CoolStuff.ttf', 'truetype')
     
 p
     width: 100%
-    color: blue
+    color: $color-text
     text-align: center
-    font-family: 'MyFont', sans-serif
+    font-family: 'MyCustomFont', sans-serif
     font-size: responsive

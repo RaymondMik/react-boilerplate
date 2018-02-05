@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = function(env) {
   return {
@@ -63,7 +64,8 @@ module.exports = function(env) {
       new CleanWebpackPlugin(['dist']),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env)
-      })
+      }),
+      new UglifyJsPlugin()
     ]
   }
 };

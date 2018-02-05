@@ -1,0 +1,20 @@
+/* LAYOUT LOGIC */
+
+//Columns layout
+$col: 1
+$numCol: 6
+
+@while $col <= $numCol
+  $width: percentage(1 / $col)
+
+  .column-#{$col}
+    width: $width
+
+  $col: $col + 1
+
+//Layout Colors
+$colors: ("regular": $color-text, "link": $color-link, "hover": $color-hover, "focus": $color-focus)
+
+@each $type, $hex in $colors
+  .text-#{$type}
+    color: $hex
