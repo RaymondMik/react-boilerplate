@@ -1,24 +1,54 @@
 import * as React from 'react';
 
-const App = (props) => {
+class App extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            previewText: null
+        };
+    }
    
-    const renderTextLines = () => {
-        let linesHtml = props.text.map( (text, i) => {
+    renderTextLines() {
+        let linesHtml = this.props.text.map( (text, i) => {
             return (
-                <p className="results" key={i}>{ text }</p>
+                <li className="text" key={i}>{ text }</li>
             );
         });
 
-        return linesHtml;
-    };
+        return (
+            <ul>{ linesHtml }</ul>
+        );
+    }
 
-    return (
-        <div>
-            <h2>Write random objects! 😁</h2>
-            <input type="text" />
-            { renderTextLines() }
-        </div>
-    );
-};
+    handleChange(event) {
+        this.setState({
+            previewText: event.target.value
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        const text = this.refs.typedText.value;
+
+        this.props.addText(text);
+    }
+
+    render() {
+        return (
+            <div>
+                <h2>Secret code generator 😁</h2>
+                <form onSubmit={ this.handleSubmit.bind(this) }>
+                    <input type="text" ref="typedText" placeholder="write some text here" onChange={ this.handleChange.bind(this) } />
+                    <input type="submit" value="Add" />
+                </form>
+                <p className="preview">{ this.state.previewText }</p>
+                <h4>Previously added</h4>
+                { this.renderTextLines() }
+            </div>
+        );
+    }
+    
+}
 
 export default App;

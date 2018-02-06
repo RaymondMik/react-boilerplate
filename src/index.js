@@ -33,8 +33,6 @@ const mapDispatchToProps = (dispatch) => {
  */
 const BaseComponent = connect(mapStateToProps, mapDispatchToProps)(App);
 
-store.dispatch(addText('ciao ciao'));
-
 /**
  * Render React application
  */
