@@ -6,7 +6,6 @@ import * as actionCreators from './actions';
 import store from './store';
 import './styles/app.sass';
 import App from './components/App';
-import { addText } from './actions';
 
 /**
  * Takes the Redux Store state and returns the props for the React app.

@@ -6,25 +6,25 @@ import reducers from '../reducers';
 const loggerMiddleware = createLogger();
 let store;
 
-const devStoreConfig = () => {
+const createDevStore = () => {
 	return store = createStore(
 		reducers,
 		composeWithDevTools(
 			applyMiddleware(
 				loggerMiddleware 
-			  )
+			)
 		)
 	);
 };
 
-const prodStoreConfig = () => {
+const createProdStore = () => {
 	return store = createStore(
 		reducers
 	);
 }; 
 
 (function initStore() {
-	return process.env.NODE_ENV === 'dev' ? devStoreConfig() : prodStoreConfig();
+	return process.env.NODE_ENV === 'dev' ? createDevStore() : createProdStore();
 })();
 
 export default store;

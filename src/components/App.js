@@ -10,11 +10,7 @@ class App extends React.Component {
     }
    
     renderTextLines() {
-        let linesHtml = this.props.text.map( (text, i) => {
-            return (
-                <li className="text" key={i}>{ text }</li>
-            );
-        });
+        let linesHtml = this.props.text.map( (text, i) => <li className="text" key={i}>{ text }</li> );
 
         return (
             <ul>{ linesHtml }</ul>
