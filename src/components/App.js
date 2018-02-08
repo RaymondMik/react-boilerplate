@@ -1,8 +1,10 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
     constructor() {
         super();
+        this.textRef;
 
         this.state = {
             previewText: null
@@ -10,10 +12,11 @@ class App extends React.Component {
     }
    
     renderTextLines() {
-        let linesHtml = this.props.text.map( (text, i) => <li className="text" key={i}>{ text }</li> );
+        const textStrings = this.props.text;
+        let textHtml = textStrings.map( (text, i) => <li className="text" key={i}>{ text }</li> );
 
         return (
-            <ul>{ linesHtml }</ul>
+            <ul>{ textHtml }</ul>
         );
     }
 
@@ -25,9 +28,9 @@ class App extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const text = this.refs.typedText.value;
+        const text = this.textRef;
 
-        this.props.addText(text);
+        this.props.addText(text.value);
     }
 
     render() {
@@ -35,7 +38,7 @@ class App extends React.Component {
             <div>
                 <h2>Secret code generator 😁</h2>
                 <form onSubmit={ this.handleSubmit.bind(this) }>
-                    <input type="text" ref="typedText" placeholder="write some text here" onChange={ this.handleChange.bind(this) } />
+                    <input type="text" ref={(el) => this.textRef = el} placeholder="write some text here" onChange={ this.handleChange.bind(this) } />
                     <input type="submit" value="Add" />
                 </form>
                 <p className="preview">{ this.state.previewText }</p>
@@ -46,5 +49,10 @@ class App extends React.Component {
     }
     
 }
+
+App.propTypes = {
+	text: PropTypes.array,
+    addText: PropTypes.func
+};
 
 export default App;

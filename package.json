@@ -7,7 +7,7 @@
     "start-dev": "webpack-dev-server --watch --env.env=dev",
     "build-prod": "webpack --env.env=prod",
     "test": "jest --config jest.config.json --no-cache",
-    "lint": "eslint './src/*.{js, jsx}'"
+    "lint": "eslint './src/**/*.{js, jsx}'"
   },
   "keywords": [],
   "author": "Ramon Miklus",
@@ -48,6 +48,7 @@
     "last 4 versions"
   ],
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-prop-types": "^0.4.0",

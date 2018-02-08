@@ -8,9 +8,9 @@ import './styles/app.sass';
 import App from './components/App';
 
 /**
- * Takes the Redux Store state and returns the props for the React app.
+ * Make the Redux store available via props on the for the React application.
  * @param {Object} state - The Redux Store state.
- * @returns {Object} props for the Presentation Components.
+ * @returns {Object} props for the React application.
  */
 const mapStateToProps = (state)  => {
     return {

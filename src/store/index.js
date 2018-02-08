@@ -6,6 +6,10 @@ import reducers from '../reducers';
 const loggerMiddleware = createLogger();
 let store;
 
+/**
+ * Configuration for the development Store
+ * @returns {Object} Redux store.
+ */
 const createDevStore = () => {
 	return store = createStore(
 		reducers,
@@ -17,13 +21,19 @@ const createDevStore = () => {
 	);
 };
 
+/**
+ * Configuration for the production Store
+ * @returns {Object} Redux store.
+ */
 const createProdStore = () => {
 	return store = createStore(
 		reducers
 	);
 }; 
 
+
 (function initStore() {
+	/*eslint no-undef: "error"*/
 	return process.env.NODE_ENV === 'dev' ? createDevStore() : createProdStore();
 })();
 
