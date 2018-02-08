@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import { Provider, connect } from 'react-redux';
 import * as actionCreators from './actions';
 import store from './store';
-import './styles/app.sass';
 import App from './components/App';
+import './styles/app.sass';
 
 /**
- * Make the Redux store available via props on the for the React application.
+ * Make the Redux store available via props to the React application.
  * @param {Object} state - The Redux Store state.
  * @returns {Object} props for the React application.
  */

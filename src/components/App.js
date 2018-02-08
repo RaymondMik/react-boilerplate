@@ -20,12 +20,22 @@ class App extends React.Component {
         );
     }
 
+    /**
+     * Handle changes in input form element
+     * 
+     * @fires setState()
+     */
     handleChange(event) {
         this.setState({
             previewText: event.target.value
         });
     }
 
+    /**
+     * Handle form submission
+     * 
+     * @fires addText() action creator
+     */
     handleSubmit(event) {
         event.preventDefault();
         const text = this.textRef;

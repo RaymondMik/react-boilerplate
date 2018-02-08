@@ -1,5 +1,5 @@
 {
-  "name": "webpack_redux_react",
+  "name": "webpack_redux_react_boilerplate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
     "test": "jest --config jest.config.json --no-cache",
     "lint": "eslint './src/**/*.{js, jsx}'"
   },
-  "keywords": [],
   "author": "Ramon Miklus",
   "license": "MIT",
   "devDependencies": {
