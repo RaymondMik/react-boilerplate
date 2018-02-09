@@ -23,9 +23,9 @@
     <li><a href="https://browsersync.io/" target="blank">BrowserSync</a></li>
     <li><a href="https://eslint.org/" target="blank">ESLint</a></li>
     <li><a href="https://facebook.github.io/jest/" target="blank">Jest</a></li>
-    <li><a href=" http://postcss.org/" target="blank">PostCSS</a> (with sass-loader)</li>
-      <li><a href="https://reactjs.org/" target="blank">React</a> (with sass-loader)</li>
-    <li><a href="https://redux.js.org/" target="blank">Redux</a> (with sass-loader)</li>
+    <li><a href=" http://postcss.org/" target="blank">PostCSS</a></li>
+    <li><a href="https://reactjs.org/" target="blank">React</a></li>
+    <li><a href="https://redux.js.org/" target="blank">Redux</a></li>
     <li><a href="https://sass-lang.com/" target="blank">Sass</a> (with sass-loader)</li>
 </ul>
 
@@ -41,7 +41,7 @@
 </ul>
 
 <h3>Sass files</h3>
-<p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project</p>
+<p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project.</p>
 
 <h3>Fork it!</h3>
 <p>I plan to extend this boilerplate by creating different branches for specific tools (e.g. a branch with React Router, a branch with React Native and so on). Please fork this project if you want to contribute to it.</p>
