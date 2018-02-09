@@ -34,7 +34,7 @@ const createProdStore = () => {
 
 (function initStore() {
 	/*eslint no-undef: "error"*/
-	return process.env.NODE_ENV === 'dev' ? createDevStore() : createProdStore();
+	return process.env.NODE_ENV === 'development' ? createDevStore() : createProdStore();
 })();
 
 export default store;

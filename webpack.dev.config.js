@@ -59,7 +59,7 @@ module.exports = function(env) {
       }),
       new CleanWebpackPlugin(['dist']),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(env)
+        'process.env.NODE_ENV': JSON.stringify('development')
       }),
       new BrowserSyncPlugin(
         // BrowserSync options

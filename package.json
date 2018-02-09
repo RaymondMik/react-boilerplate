@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --watch --env.env=dev",
-    "build-prod": "webpack --env.env=prod",
+    "build-prod": "webpack-dev-server --env.env=prod",
     "test": "jest --config jest.config.json --no-cache",
     "lint": "eslint './src/**/*.{js, jsx}'"
   },
