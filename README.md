@@ -1,4 +1,4 @@
-<h2>Webpack Redux/React startup kit</h2>
+<h2>Webpack Redux/React boilerplate</h2>
 <p>A basic boilerplate for Redux/React projects easy to use, extend and customize.</p>
 
 <h3>What you will find here</h3>
@@ -44,5 +44,5 @@
 <p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project.</p>
 
 <h3>Fork it!</h3>
-<p>I plan to extend this boilerplate by creating different branches for specific tools (e.g. a branch with React Router, a branch with React Native and so on). Please fork this project if you want to contribute to it.</p>
+<p>I plan to extend this boilerplate by creating different branches for specific tools (e.g. a branch for React Router, a branch for React Native and so on). Please fork this project if you want to contribute to it.</p>
 
