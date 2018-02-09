@@ -44,5 +44,5 @@
 <p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project.</p>
 
 <h3>Fork it!</h3>
-<p>I plan to extend this boilerplate by creating different branches for specific tools (e.g. a branch for React Router, a branch for React Native and so on). Please fork this project if you want to contribute to it.</p>
+<p>I plan to extend this boilerplate by creating different branches for specific tools (e.g. a branch for React Router, etc.). The goal is that of keeping the boilerplate as basic as possible, adding just common funcionalities that would fit well the majority of projects. Please fork this project if you want to contribute to it.</p>
 
