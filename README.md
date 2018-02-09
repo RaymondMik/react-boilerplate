@@ -1,21 +1,21 @@
 <h2>Webpack Redux/React startup kit</h2>
-<p>A basic boilerplate for Redux/React projects easy to use, extend and customize</p>
+<p>A basic boilerplate for Redux/React projects easy to use, extend and customize.</p>
 
 <h3>What you will find here</h3>
-<p>Basically all you need to startup a Redux/React project, including Webpack configuration files and server, Redux store, actions, reducers and a React component with a simple working example.</p>
+<p>Basically all you need to startup a Redux/React project, including Webpack configuration files and server, Redux store, actions, reducers and a React component with a simple example application.</p>
 
 <h3>Webpack Setup</h3>
-<p>This boilerplate comes with two Webpack setups: development (dev) - defined in <code>webpack.dev.config.js</code>) and production (prod, actually a production build) - defined in <code>webpack.prod.config.js</code>.</p>
+<p>This boilerplate comes with two Webpack setups: development - defined in <code>webpack.dev.config.js</code>) and production (actually a production build) - defined in <code>webpack.prod.config.js</code>.</p>
 
 <h3>Get Started</h3>
 <h4>Install the app</h4>
 <p><code>npm install</code><p>
 
 <h4>Development</h4>
-<p>Run <code>npm run start-dev</code> to start the development environment. Webpack will bundle JavaScript and Sass (or CSS) files into a bundle.js, which will be added to the index.html file generated using <code>./src/index.html</code> as a template. The application will be served on http://localhost:8080/ using BrowserSync</p> 
+<p>Run <code>npm run start-dev</code> to start the development environment. Webpack will bundle JavaScript and Sass (or CSS) files into a bundle.js, which will be added to the index.html file generated using <code>./src/index.html</code> as a template. The application will be served on http://localhost:3000/ using BrowserSync</p> 
 
-<h4>Production Build</h4>
-<p>Run <code>npm run build prod</code> to build the production code. Webpack will compile, uglify and bundle JavaScript files into <code>bundle.js</code> and will compile and minify Sass (or CSS) files into <code>style.css</code>.
+<h4>Production</h4>
+<p>Run <code>npm run build prod</code> to build the production code. Webpack will compile, uglify and bundle JavaScript files into <code>bundle.js</code> and will compile and minify Sass (or CSS) files into <code>style.css</code>. The production build will be served by webpack dev-server on http://localhost:8080.
 
 <h3>Major tools and libraries</h3>
 <ul>
@@ -39,6 +39,9 @@
     <li>PostCSS: <code>postcss.config.json</code></li>
     <li>Webpack: <code>webpack.config.js</code> (accessing different configuration files according to the selected environment)</li>
 </ul>
+
+<h3>Sass files</h3>
+<p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project</p>
 
 <h3>Fork it!</h3>
 <p>I plan to extend this boilerplate by creating different branches for specific tools (e.g. a branch with React Router, a branch with React Native and so on). Please fork this project if you want to contribute to it.</p>
