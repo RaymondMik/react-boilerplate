@@ -23,7 +23,7 @@
     <li><a href="https://browsersync.io/" target="blank">BrowserSync</a></li>
     <li><a href="https://eslint.org/" target="blank">ESLint</a></li>
     <li><a href="https://facebook.github.io/jest/" target="blank">Jest</a></li>
-    <li><a href=" http://postcss.org/" target="blank">PostCSS</a></li>
+    <li><a href="http://postcss.org/" target="blank">PostCSS</a></li>
     <li><a href="https://reactjs.org/" target="blank">React</a></li>
     <li><a href="https://redux.js.org/" target="blank">Redux</a></li>
     <li><a href="https://sass-lang.com/" target="blank">Sass</a> (with sass-loader)</li>
