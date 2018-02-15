@@ -4,14 +4,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from '../reducers';
 
 const loggerMiddleware = createLogger();
-let store;
 
 /**
- * Configuration for the development Store
+ * Configuration for the development store
  * @returns {Object} Redux store.
  */
 const createDevStore = () => {
-	return store = createStore(
+	const store = createStore(
 		reducers,
 		composeWithDevTools(
 			applyMiddleware(
@@ -19,22 +18,36 @@ const createDevStore = () => {
 			)
 		)
 	);
+
+	// Webpack Hot Module Replacement API
+	if (module.hot) {
+		module.hot.accept('../reducers', () => {
+		  const nextReducers = require('../reducers').default;
+		  store.replaceReducer(nextReducers);
+		});
+	}
+
+	return store;
 };
 
 /**
- * Configuration for the production Store
+ * Configuration for the production store
  * @returns {Object} Redux store.
  */
 const createProdStore = () => {
-	return store = createStore(
+	const store = createStore(
 		reducers
 	);
+
+	return store;
 }; 
 
-
-(function initStore() {
-	/*eslint no-undef: "error"*/
+/**
+ * Initialize the store
+ * @returns {Object} Redux store.
+ */
+const initStore = () => {
 	return process.env.NODE_ENV === 'development' ? createDevStore() : createProdStore();
-})();
+};
 
-export default store;
+export default initStore;

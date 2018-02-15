@@ -1,6 +1,33 @@
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions';
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/app.sass';
 
+/**
+ * Make the Redux store available via props to the React application.
+ * @param {Object} state - The Redux Store state.
+ * @returns {Object} props for the React application.
+ */
+const mapStateToProps = (state)  => {
+    return {
+        text: state.text
+    };
+};
+
+/**
+ * Wrap Redux Actions into a dispatch call so they may be invoked directly in the React app.
+ * @param {Function} dispatch - The Redux Store dispatch method.
+ * @returns {Object} action creators wrapped into a dispatch().
+ */
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actionCreators, dispatch);
+};
+
+/**
+ * Base React component of the application
+ */
 class App extends React.Component {
     constructor() {
         super();
@@ -65,4 +92,7 @@ App.propTypes = {
     addText: PropTypes.func
 };
 
-export default App;
+/**
+ * Connect Redux state and actions to the React application.
+ */
+export default connect(mapStateToProps, mapDispatchToProps)(App);

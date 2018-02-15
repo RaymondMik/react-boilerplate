@@ -6,14 +6,17 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = function(env) {
   return {
-    entry: './src/index.js',
+    entry: [
+      'babel-polyfill', 'react-hot-loader/patch', './src/index.js'
+    ],
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, './dist')
     },
     devtool: 'inline-source-map',
     devServer: {
-      contentBase: './dist'
+      contentBase: './dist',
+      hot: true
     },
     module: {
       rules: [
@@ -33,9 +36,7 @@ module.exports = function(env) {
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: [
-            {loader: 'babel-loader'}
-          ]
+          use: [ 'babel-loader' ]
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
@@ -52,15 +53,17 @@ module.exports = function(env) {
       ]
     },
     plugins: [
+      new CleanWebpackPlugin(['dist']),
       new HtmlWebpackPlugin({
         title: 'My Redux/React App',
         filename: 'index.html',
         template: 'src/index.html'
       }),
-      new CleanWebpackPlugin(['dist']),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('development')
       }),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin(),
       new BrowserSyncPlugin(
         // BrowserSync options
         {

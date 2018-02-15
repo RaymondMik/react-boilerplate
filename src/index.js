@@ -1,42 +1,31 @@
 import * as React from 'react';
-import { render } from 'react-dom';
-import { bindActionCreators } from 'redux';
-import { Provider, connect } from 'react-redux';
-import * as actionCreators from './actions';
-import store from './store';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import initStore from './store';
+import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
-import './styles/app.sass';
 
-/**
- * Make the Redux store available via props to the React application.
- * @param {Object} state - The Redux Store state.
- * @returns {Object} props for the React application.
- */
-const mapStateToProps = (state)  => {
-    return {
-        text: state.text
-    };
-};
-
-/**
- * Wrap Redux Actions into a dispatch call so they may be invoked directly in the React app.
- * @param {Function} dispatch - The Redux Store dispatch method.
- * @returns {Object} action creators wrapped into a dispatch().
- */
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators(actionCreators, dispatch);
-};
-
-/**
- * Connect Redux state and actions to the React application.
- */
-const BaseComponent = connect(mapStateToProps, mapDispatchToProps)(App);
+const store = initStore();
 
 /**
  * Render React application
  */
-render(
-	(<Provider store={store}>
-        <BaseComponent />
-	</Provider>),
-	document.getElementById('application'));
+const renderApp = (BaseComponent) => {
+    ReactDOM.render(
+        <AppContainer>
+            <Provider store={store}>
+                <BaseComponent />
+            </ Provider>
+        </ AppContainer>,
+        document.getElementById('application'));
+};
+
+renderApp(App);
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+    module.hot.accept('./components/App', () => {
+        const NextBaseComponent = require('./components/App').default;
+        renderApp(NextBaseComponent);
+    });
+}
