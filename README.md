@@ -44,7 +44,7 @@
 </ul>
 
 <h3>Sass files</h3>
-<p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project. You can easily switch to scss syntax as this boilerplates also support scss files</p>
+<p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project. You can easily switch to scss syntax as this boilerplate also support scss files</p>
 
 <h3>Fork it!</h3>
 <p>I plan to extend this boilerplate by creating different branches for specific functionalities such as routing, sagas, etc., but still keeping it as basic as possible, so other developers can easily customize it according to their needs. Please fork this project if you want to contribute to it!</p>
