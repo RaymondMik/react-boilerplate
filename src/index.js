@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import initStore from './store';
 import { AppContainer } from 'react-hot-loader';
-import App from './components/App';
+import Base from './components/Base';
 
 const store = initStore();
 
@@ -20,12 +20,12 @@ const renderApp = (BaseComponent) => {
         document.getElementById('application'));
 };
 
-renderApp(App);
+renderApp(Base);
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
-    module.hot.accept('./components/App', () => {
-        const NextBaseComponent = require('./components/App').default;
+    module.hot.accept('./components/Base', () => {
+        const NextBaseComponent = require('./components/Base').default;
         renderApp(NextBaseComponent);
     });
 }
