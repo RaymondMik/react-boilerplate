@@ -5,12 +5,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-module.exports = function(env) {
-  return {
-    entry: './src/index.js',
+module.exports = {
+    mode: 'production',
+    entry: {
+      index: './src/index.js'
+    },
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, './dist')
+    },
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      }
     },
     module: {
       rules: [
@@ -54,7 +61,9 @@ module.exports = function(env) {
       ]
     },
     plugins: [
-      new ExtractTextPlugin("styles.css"),
+      new ExtractTextPlugin({
+        filename: 'styles.css'
+      }),
       new HtmlWebpackPlugin({
         title: 'My Redux/React App',
         filename: 'index.html',
@@ -66,5 +75,4 @@ module.exports = function(env) {
       }),
       new UglifyJsPlugin()
     ]
-  }
 };

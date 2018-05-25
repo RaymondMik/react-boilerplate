@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-module.exports = function(env) {
-  return {
+module.exports = {
+    mode: 'development',
     entry: [
       'babel-polyfill', 'react-hot-loader/patch', './src/index.js'
     ],
@@ -83,5 +83,4 @@ module.exports = function(env) {
         }
       )
     ]
-  };
 };

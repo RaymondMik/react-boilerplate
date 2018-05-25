@@ -7,7 +7,7 @@ const webpackConfig = (env) => {
     throw new Error('--env.env must be set either to dev or prod');
   }
 
-  return require(`./webpack.${env.env}.config.js`)(env.env);
+  return require(`./webpack.${env.env}.config.js`);
 };
 
 module.exports = webpackConfig;
