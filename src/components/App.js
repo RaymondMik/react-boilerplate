@@ -43,8 +43,10 @@ class App extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const text = this.textRef;
-
+        // dispatch Redux action
         this.props.addText(text.value);
+        // reset form
+        event.target.reset();
     }
 
     render() {
