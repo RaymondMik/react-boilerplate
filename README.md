@@ -20,7 +20,7 @@
 <h3>Hot module replacement</h3>
 <p>This project has hot module replacement enabled in development on the Redux store and the React UI as well. That means that changes in the code of reducers or React components won't cause a page reload therefore retaining the current state of the application.</p>
 
-<h3>Major tools and libraries</h3>
+<h3>Major tools and libraries you will find here</h3>
 <ul>
     <li><a href="https://babeljs.io/" target="blank">Babel</a></li>
     <li><a href="https://browsersync.io/" target="blank">BrowserSync</a></li>
