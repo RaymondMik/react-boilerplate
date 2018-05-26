@@ -24,6 +24,7 @@
 <ul>
     <li><a href="https://babeljs.io/" target="blank">Babel</a></li>
     <li><a href="https://browsersync.io/" target="blank">BrowserSync</a></li>
+    <li><a href="http://airbnb.io/enzyme/" target="blank">Enzyme</a></li>
     <li><a href="https://eslint.org/" target="blank">ESLint</a></li>
     <li><a href="https://facebook.github.io/jest/" target="blank">Jest</a></li>
     <li><a href="http://postcss.org/" target="blank">PostCSS</a></li>
