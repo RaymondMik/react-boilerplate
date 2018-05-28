@@ -1,6 +1,7 @@
 {
     "verbose": true,
     "moduleFileExtensions": ["js", "jsx", "json"],
+    "setupTestFrameworkScriptFile": "./enzymeSetup.js",
     "collectCoverage": true
 }
   

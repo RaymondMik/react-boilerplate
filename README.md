@@ -37,6 +37,7 @@
 <p>Each tool has is own configuration file located in the root folder: </p>
 <ul>
     <li>Babel: <code>.babelrc</code></li>
+    <li>Enzyme: <code>enzymeSetup.js</code></li>
     <li>ES Lint: <code>.eslintrc.json</code></li>
     <li>Git: <code>.gitignore</code></li>
     <li>Jest: <code>jest.config.json</code></li>
