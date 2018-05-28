@@ -4,23 +4,25 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from '../reducers';
 
 const loggerMiddleware = createLogger();
+const middlewares = [];
+let store;
+// add logger middleware in development only
+if (process.env.NODE_ENV === 'development') middlewares.push(loggerMiddleware);
 
 /**
- * Configuration for the development store
+ * Initialize the store
  * @returns {Object} Redux store.
  */
-const createDevStore = () => {
-	const store = createStore(
+const initStore = () => {
+	store = createStore(
 		reducers,
 		composeWithDevTools(
-			applyMiddleware(
-				loggerMiddleware 
-			)
+			applyMiddleware(...middlewares)
 		)
 	);
 
-	// Webpack Hot Module Replacement API
-	if (module.hot) {
+	// Webpack Hot Module Replacement API - runs only in development
+	if (process.env.NODE_ENV === 'development' && module.hot) {
 		module.hot.accept('../reducers', () => {
 		  const nextReducers = require('../reducers').default;
 		  store.replaceReducer(nextReducers);
@@ -30,24 +32,4 @@ const createDevStore = () => {
 	return store;
 };
 
-/**
- * Configuration for the production store
- * @returns {Object} Redux store.
- */
-const createProdStore = () => {
-	const store = createStore(
-		reducers
-	);
-
-	return store;
-}; 
-
-/**
- * Initialize the store
- * @returns {Object} Redux store.
- */
-const initStore = () => {
-	return process.env.NODE_ENV === 'development' ? createDevStore() : createProdStore();
-};
-
-export default initStore;
+export { initStore, store };
