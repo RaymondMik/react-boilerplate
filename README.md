@@ -3,6 +3,11 @@
 
 <h3>What you will find here</h3>
 <p>Basically all you need to startup a Redux/React project, including Webpack configuration files and Dev Server, Redux store, actions, reducers and a React component with a simple example application.</p>
+<h4><code>master</code> branch</h4>
+You will find here a boilerplate to startup a basic Redux/React project with a store with actions, reducers and the React UI.
+
+<h4><code>sagas-react_router</code> branch</h4>
+You will find here a boilerplate to startup a Redux/React project sending HTTP requests to a RESTful API and with page routing, done respectively wih Redux Sagas and React Router v4.
 
 <h3>Webpack Setup</h3>
 <p>This boilerplate comes with two Webpack setups: development - defined in <code>webpack.dev.config.js</code> and production (actually a production build) - defined in <code>webpack.prod.config.js</code>.</p>
