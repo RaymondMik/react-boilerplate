@@ -1,0 +1,53 @@
+// Web Fonts
+@mixin font-face($family, $file, $extensions...) {
+  @font-face {
+      font-family: $family;
+      @each $val in $extensions {
+          src: url('#{$path-font}/#{$file}.#{$val}');
+      }
+      font-weight: normal;
+      font-style: normal;
+  }    
+}
+
+// Text
+//if declared "null", properties become optional
+@mixin text($size, $f-family: null, $l-height: null, $weight: null, $color: null) {
+  font-size: $size;
+  font-family: $f-family;
+  line-height: $l-height;
+  font-weight: $weight;
+  color: $color;
+}
+
+//container margins
+@mixin margins($mrg-vertical, $mrg-horizontal, $pdg-vertical, $pdg-horizontal ) {
+  margin: $mrg-vertical $mrg-horizontal;
+  padding: $pdg-vertical $pdg-horizontal;
+}
+
+//transition mixin
+@mixin transition($trans-property, $trans-duration, $trans-timing-function) {
+  -webkit-transition: $trans-property $trans-duration $trans-timing-function;
+  -moz-transition: $trans-property $trans-duration $trans-timing-function;
+  -o-transition: $trans-property $trans-duration $trans-timing-function;
+  transition: $trans-property $trans-duration $trans-timing-function; 
+}
+
+//transform mixin
+@mixin transform( $val ) {
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -o-transform: $val;
+  transform: $val;
+}
+
+//animate mixin
+@mixin animate ( $attr, $time ) {
+  -webkit-transition: $attr $time ease;
+  -moz-transition: $attr $time ease;
+  -ms-transition: $attr $time ease;
+  -o-transition: $attr $time ease;
+  transition: $attr $time ease;
+}

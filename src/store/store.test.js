@@ -1,27 +1,32 @@
 import { initStore, store } from './index';
-import { addText } from '../actions';
+import { getCryptosSuccess } from '../actions';
+import * as mockData from '../assets/mocks/mockCryptoData.json';
 
 beforeEach(() => {
     initStore();
 });
 
-describe('Basic store tests', () => {
-    test('Initial text state must be an empty array', () => {
-        expect(Array.isArray(store.getState().text)).toBeTruthy();
-        expect(store.getState().text.length).toEqual(0);
+describe('Store integrated tests', () => {
+    describe('By default the store should', () => {
+        test('not contain any cryptos', () => {
+            const state = store.getState();
+            expect(Object.keys(state.cryptos.items).length).toBe(0);
+        });
+
     });
 
-    test('Store state array must contain an item more after dispatching ADD_TEXT', () => {
-        const initialTextLength = store.getState().text.length;
-        store.dispatch(addText('Hello World'));
+    describe('After dispatching "GET_CRYPTOS_SUCCESS"', () => {
+        test('Items should have been added to the store', () => {
+            const initialState = store.getState();
+            store.dispatch(getCryptosSuccess(mockData));
+            const finalState = store.getState();
+            expect(Object.keys(initialState.cryptos.items).length).toBeLessThan(Object.keys(finalState.cryptos.items).length);
+        });
 
-        expect(store.getState().text.length).toEqual(initialTextLength + 1);
-    });
-
-    test('String passed to ADD_TEXT must be the last item contained in text state array', () => {
-        const dummyText = 'Hello World Again!';
-        store.dispatch(addText(dummyText));
-
-        expect(store.getState().text).toContain(dummyText);
+        test('Cryptos in mockData should be now contained into the store', () => {
+            store.dispatch(getCryptosSuccess(mockData));
+            const state = store.getState();
+            expect(state.cryptos.items.data[1]).toEqual(mockData.data[1]);
+        });
     });
 });

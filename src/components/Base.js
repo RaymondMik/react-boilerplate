@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions';
+import * as selectors from '../reducers';
 import App from './App';
 
 /**
@@ -10,7 +11,7 @@ import App from './App';
  */
 const mapStateToProps = (state)  => {
     return {
-        text: state.text
+        cryptos: selectors.getCryptos(state),
     };
 };
 

@@ -51,10 +51,13 @@
     "last 4 versions"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "prop-types": "^15.6.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0"

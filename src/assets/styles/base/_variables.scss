@@ -1,0 +1,31 @@
+/* VARIABLES */
+
+// Descriptive color variables
+$grey: #999;
+$blue: #42a5f5;
+
+// Functional color variables
+$color-text: #333333;
+$color-hover: #337ab7;
+$color-focus: #354a5f;
+$color-link: #9bffff;
+
+// Border radius
+$br-sm: 5px;
+$br-md: 10px;
+$br-lg: 15px;
+
+// Asset paths
+$path-img: "../assets/images/";
+$path-font: "../assets/fonts/";
+
+//Media query breackpoints
+$media-smartphone-portrait: "screen and (max-width: 480px) and (orientation: portrait)";
+$media-smartphone-landscape: "screen  and (max-width: 800px) and (orientation: landscape)";
+$media-tablet-portrait: "screen and (min-width: 481px) and (max-width: 810px) and (orientation: portrait)";
+$media-tablet-landscape: "screen and (min-width: 801px) and (max-width: 1300px) and (orientation: landscape)";
+$media-tablet-to-desktop: "screen and (min-width: 993px) and (max-width: 1280px)";
+$media-desktop: "screen and (min-width: 1281px)";
+
+// Font stacks
+$text-regular: Helvetica, sans-serif;

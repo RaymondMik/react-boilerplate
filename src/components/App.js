@@ -1,80 +1,52 @@
 import * as React from 'react';
 import { hot } from 'react-hot-loader';
+import { Route, NavLink, Switch } from 'react-router-dom';
+import CryptosList from './CryptosList';
 import PropTypes from 'prop-types';
-import '../styles/app.sass';
+import Settings from './Settings';
+import '../assets/styles/app.scss';
 
 /**
- * Base React component of the application
+ * Application component
  */
-class App extends React.Component {
-    constructor() {
-        super();
-        this.textRef;
-
-        this.state = {
-            previewText: null
-        };
-    }
-   
-    /**
-     * Render lines
-     * 
-     * @param {Array} textStrings - The string we want to render.
-     * @returns {JSX} lines to be rendered
-     */
-    renderTextLines(textStrings = []) {
-        let textHtml = textStrings.map( (text, i) => <li className="text" key={i}>{ text }</li> );
-
-        return (
-            <ul>{ textHtml }</ul>
-        );
-    }
-
-    /**
-     * Handle changes in input form element
-     * 
-     * @fires setState()
-     */
-    handleChange(event) {
-        this.setState({
-            previewText: event.target.value
-        });
-    }
-
-    /**
-     * Handle form submission
-     * 
-     * @fires addText() action creator
-     */
-    handleSubmit(event) {
-        event.preventDefault();
-        const text = this.textRef;
-        // dispatch Redux action
-        this.props.addText(text.value);
-        // reset form
-        event.target.reset();
-    }
-
-    render() {
+const App = (props) => {
+    // Render Loader
+    if (props.cryptos.isFetching) {
         return (
             <div>
-                <h2>Secret code generator 😁</h2>
-                <form onSubmit={ this.handleSubmit.bind(this) }>
-                    <input type="text" ref={(el) => this.textRef = el} placeholder="write some text here" onChange={ this.handleChange.bind(this) } />
-                    <input type="submit" value="Add" />
-                </form>
-                <p className="preview">{ this.state.previewText }</p>
-                <h4>Previously added</h4>
-                { this.renderTextLines(this.props.text) }
+                <h3>...Loading</h3>
             </div>
         );
     }
+
+    // Render ErrorBoundary via componentDidCatch()
+    if (props.cryptos.errors) {
+        throw new Error('Something went wrong while fetching API data!');
+    }
+
+    const cryptos = props.cryptos.items.data;
     
-}
+    return (
+        <div>
+            <h2>Crypto Currency App</h2>
+            <header>
+                <NavLink to={'/'} activeClassName='selected'>Home</NavLink>
+                <NavLink to={'/settings'} activeClassName='selected'>Settings</NavLink>
+            </header>
+            <Switch>
+                <Route path='/' exact render={(props) => (
+                    <CryptosList {...props}
+                        cryptos={cryptos}
+                    />
+                )} />
+                <Route path='/settings' component={Settings} />
+            </ Switch>
+        </div>
+    );
+};
 
 App.propTypes = {
-	text: PropTypes.array,
-    addText: PropTypes.func
+    cryptos: PropTypes.object
 };
 
 export default hot(module)(App);
