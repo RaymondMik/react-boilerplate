@@ -2,7 +2,11 @@
 <p>A basic boilerplate for Redux/React projects easy to use, extend and customize.</p>
 
 <h3>What you will find here</h3>
-<p>Basically all you need to startup a Redux/React project, including Webpack configuration files and Dev Server, Redux store, actions, reducers and a React component with a simple example application.</p>
+<p>Basically all you need to startup a Redux/React project, including Webpack configuration files and Dev Server, Redux store, actions, reducers and a React component with a simple example application. This project consists in two different branches:</p>
+<h4>master branch</h4>
+<p>You will find here a boilerplate to startup a basic Redux/React project with a store with actions, reducers and the React UI.</p>
+<h4>sagas-react_router branch</h4>
+<p>You will find here a boilerplate to startup a Redux/React project sending HTTP requests to a RESTful API and with page routing, done respectively wih Redux Sagas and React Router v4.</p>
 
 <h3>Webpack Setup</h3>
 <p>This boilerplate comes with two Webpack setups: development - defined in <code>webpack.dev.config.js</code> and production (actually a production build) - defined in <code>webpack.prod.config.js</code>.</p>
@@ -29,6 +33,7 @@
     <li><a href="https://facebook.github.io/jest/" target="blank">Jest</a></li>
     <li><a href="http://postcss.org/" target="blank">PostCSS</a></li>
     <li><a href="https://reactjs.org/" target="blank">React</a></li>
+    <li><a href="https://reacttraining.com/react-router/" target="blank">React Router</a></li>
     <li><a href="https://redux.js.org/" target="blank">Redux</a></li>
     <li><a href="https://sass-lang.com/" target="blank">Sass</a> (with sass-loader)</li>
 </ul>
