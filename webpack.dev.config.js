@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -16,7 +17,8 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
       contentBase: './dist',
-      hot: true
+      hot: true,
+      historyApiFallback: true
     },
     module: {
       rules: [
@@ -59,6 +61,7 @@ module.exports = {
         filename: 'index.html',
         template: 'src/index.html'
       }),
+      new BaseHrefWebpackPlugin({baseHref: '/'}),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('development')
       }),

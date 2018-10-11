@@ -7,7 +7,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     mode: 'production',
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: {
+      index: './src/index.js'
+    },
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, './dist')
@@ -40,12 +42,9 @@ module.exports = {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: [{
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015', 'react']
-            }
-          }]
+          use: [
+            {loader: 'babel-loader'}
+          ]
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
