@@ -1,4 +1,4 @@
-<h2>Webpack Redux/React boilerplate</h2>
+<h2>Webpack React/Redux boilerplate</h2>
 <p>A basic boilerplate for Redux/React projects easy to use, extend and customize.</p>
 
 <h3>What you will find here</h3>
@@ -20,7 +20,7 @@ You will find here a boilerplate to startup a Redux/React project sending HTTP r
 <p>Run <code>npm run start-dev</code> to start the development environment. Webpack will bundle JavaScript and Sass (or CSS) files into a bundle.js, which will be added to the index.html file generated using <code>./src/index.html</code> as a template. Webpack Dev Server will serve the application on http://localhost:3000/ using BrowserSync.</p> 
 
 <h4>Production</h4>
-<p>Run <code>npm run build</code> to build the production code. Webpack will compile, uglify and bundle JavaScript files into <code>bundle.js</code> and will compile and minify Sass (or CSS) files into <code>style.css</code>. The production build will be served by Webpack Dev Server on http://localhost:8080.</p>
+<p>Run <code>npm run build</code> to build the production code. Webpack will compile, uglify and bundle JavaScript files into <code>bundle.js</code> and will compile and minify Sass (or CSS) files into <code>style.css</code>. The production build will be created in the "./dist" directory, and it will be served by Webpack Dev Server on http://localhost:8080.</p>
 
 <h3>Hot module replacement</h3>
 <p>This project has hot module replacement enabled in development on the Redux store and the React UI as well. That means that changes in the code of reducers or React components won't cause a page reload therefore retaining the current state of the application.</p>
@@ -29,7 +29,6 @@ You will find here a boilerplate to startup a Redux/React project sending HTTP r
 <ul>
     <li><a href="https://babeljs.io/" target="blank">Babel</a></li>
     <li><a href="https://browsersync.io/" target="blank">BrowserSync</a></li>
-    <li><a href="http://airbnb.io/enzyme/" target="blank">Enzyme</a></li>
     <li><a href="https://eslint.org/" target="blank">ESLint</a></li>
     <li><a href="https://facebook.github.io/jest/" target="blank">Jest</a></li>
     <li><a href="http://postcss.org/" target="blank">PostCSS</a></li>
@@ -42,7 +41,6 @@ You will find here a boilerplate to startup a Redux/React project sending HTTP r
 <p>Each tool has is own configuration file located in the root folder: </p>
 <ul>
     <li>Babel: <code>.babelrc</code></li>
-    <li>Enzyme: <code>enzymeSetup.js</code></li>
     <li>ES Lint: <code>.eslintrc.json</code></li>
     <li>Git: <code>.gitignore</code></li>
     <li>Jest: <code>jest.config.json</code></li>

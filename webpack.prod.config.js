@@ -1,18 +1,19 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'production',
-    entry: {
-      index: './src/index.js'
-    },
+    entry: './src/index.js',
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, './dist')
+      path: path.resolve(__dirname, './dist'),
+    },
+    devServer: {
+      writeToDisk: true
     },
     optimization: {
       splitChunks: {
@@ -61,6 +62,7 @@ module.exports = {
       ]
     },
     plugins: [
+      new CleanWebpackPlugin(['dist']),
       new ExtractTextPlugin({
         filename: 'styles.css'
       }),
@@ -69,7 +71,6 @@ module.exports = {
         filename: 'index.html',
         template: 'src/index.html'
       }),
-      new CleanWebpackPlugin(['dist']),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
