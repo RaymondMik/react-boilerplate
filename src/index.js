@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { initStore } from './store';
-import Base from './components/Base';
+import App from './components/App';
 
 const store = initStore();
 
@@ -11,7 +11,7 @@ const store = initStore();
  */
 ReactDOM.render(
     <Provider store={store}>
-        <Base />
+        <App />
     </ Provider>,
     document.getElementById('application')
 );

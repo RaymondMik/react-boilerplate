@@ -1,20 +1,16 @@
-import React from 'react';
-import { hot } from 'react-hot-loader';
+import React, { useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { hot } from 'react-hot-loader/root';
 import PropTypes from 'prop-types';
+import { addText } from '../store/actions';
 import '../styles/app.sass';
 
-/**
- * Base React component of the application
- */
-class App extends React.Component {
-    constructor() {
-        super();
-        this.textRef;
+const App = () => {
+    const dispatch = useDispatch();
+    const { text } = useSelector(state => state);
 
-        this.state = {
-            previewText: null
-        };
-    }
+    let textRef = useRef(null);
+    const [prevText, setPrevText] = useState(null);
    
     /**
      * Render lines
@@ -22,60 +18,54 @@ class App extends React.Component {
      * @param {Array} textStrings - The string we want to render.
      * @returns {JSX} lines to be rendered
      */
-    renderTextLines(textStrings = []) {
+    const renderTextLines = (textStrings = []) => {
         let textHtml = textStrings.map( (text, i) => <li className="text" key={i}>{ text }</li> );
 
         return (
             <ul>{ textHtml }</ul>
         );
-    }
+    };
 
     /**
      * Handle changes in input form element
      * 
-     * @fires setState()
+     * @fires setPrevText()
      */
-    handleChange(event) {
-        this.setState({
-            previewText: event.target.value
-        });
-    }
+    const handleChange = (event) => {
+        setPrevText(event.target.value);
+    };
 
     /**
      * Handle form submission
      * 
      * @fires addText() action creator
      */
-    handleSubmit(event) {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const text = this.textRef;
+        const text = textRef;
         // dispatch Redux action
-        this.props.addText(text.value);
+        dispatch(addText(text.value));
         // reset form
         event.target.reset();
-    }
+    };
 
-    render() {
-        return (
-            <div>
-                <h2>Secret code generator 😁</h2>
-                <form onSubmit={ this.handleSubmit.bind(this) }>
-                    <input type="text" ref={(el) => this.textRef = el} placeholder="write some text here" onChange={ this.handleChange.bind(this) } />
-                    <input type="submit" value="Add" />
-                </form>
-                <p className="preview">{ this.state.previewText }</p>
-                <h4>Previously added</h4>
-                { this.renderTextLines(this.props.text) }
-            </div>
-        );
-    }
-    
-}
+    return (
+        <div>
+            <h2>Secret code generator 😁</h2>
+            <form onSubmit={(e) => { handleSubmit(e);}}>
+                <input type="text" ref={(el) => textRef = el} placeholder="write some text here" onChange={(e) => { handleChange(e);}} />
+                <input type="submit" value="Add" />
+            </form>
+            <p className="preview">{ prevText }</p>
+            <h4>Previously added</h4>
+            { renderTextLines(text) }
+        </div>
+    );
+};
 
 App.propTypes = {
 	text: PropTypes.array,
     addText: PropTypes.func
 };
 
-export default hot(module)(App);
-
+export default hot(App);

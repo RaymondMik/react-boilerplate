@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducers from '../reducers';
+import reducers from './reducers';
 
 const loggerMiddleware = createLogger();
 const middlewares = [];
@@ -23,8 +23,8 @@ const initStore = () => {
 
 	// Webpack Hot Module Replacement API - runs only in development
 	if (process.env.NODE_ENV === 'development' && module.hot) {
-		module.hot.accept('../reducers', () => {
-		  const nextReducers = require('../reducers').default;
+		module.hot.accept('./reducers', () => {
+		  const nextReducers = require('./reducers').default;
 		  store.replaceReducer(nextReducers);
 		});
 	}
