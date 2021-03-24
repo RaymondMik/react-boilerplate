@@ -47,7 +47,7 @@
 </ul>
 
 <h3>Sass files</h3>
-<p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project. You can easily switch to scss syntax as this boilerplate also support scss files</p>
+<p>In the <code>./src/styles</code> folder you will find Sass partials, mixins and variables I used for this example project. You can easily switch to scss syntax as this boilerplate also support scss files.</p>
 
 <h3>File loader</h3>
 <p>I used <a href="https://github.com/webpack-contrib/file-loader" target="blank">Webpack File Loader</a> in order to include external resources such as images and fonts very easily.</p>
