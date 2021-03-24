@@ -20,7 +20,10 @@ You will find here a boilerplate to startup a Redux/React project sending HTTP r
 <p>Run <code>npm run start-dev</code> to start the development environment. Webpack will bundle JavaScript and Sass (or CSS) files into a bundle.js, which will be added to the index.html file generated using <code>./src/index.html</code> as a template. Webpack Dev Server will serve the application on http://localhost:3000/ using BrowserSync.</p> 
 
 <h4>Production</h4>
-<p>Run <code>npm run build</code> to build the production code. Webpack will compile, uglify and bundle JavaScript files into <code>bundle.js</code> and will compile and minify Sass (or CSS) files into <code>style.css</code>. The production build will be created in the "./dist" directory, and it will be served by Webpack Dev Server on http://localhost:8080.</p>
+<p>Run <code>npm run prod</code> to build the production code. Webpack will compile, uglify and bundle JavaScript files into <code>bundle.js</code> and will compile and minify Sass (or CSS) files into <code>style.css</code>. The production build will be created in the "./dist" directory, and it will be served by Webpack Dev Server on http://localhost:8080.</p>
+
+<h4>Production Build</h4>
+<p>Run <code>npm run build</code> to build the production code. Webpack will compile, uglify and bundle JavaScript files into <code>bundle.js</code> and will compile and minify Sass (or CSS) files into <code>style.css</code>. The production build will be created in the "./dist" directory.</p>
 
 <h3>Hot module replacement</h3>
 <p>This project has hot module replacement enabled in development on the Redux store and the React UI as well. That means that changes in the code of reducers or React components won't cause a page reload therefore retaining the current state of the application.</p>
