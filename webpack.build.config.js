@@ -14,6 +14,7 @@ module.exports = {
       path: path.resolve(__dirname, './dist'),
     },
     devServer: {
+      contentBase: './dist',
       writeToDisk: true
     },
     optimization: {
