@@ -6,13 +6,15 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
+    resolve: { extensions: ['.js', '.jsx'] },
     mode: 'production',
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, './dist'),
     },
     devServer: {
+      contentBase: './dist',
       writeToDisk: true
     },
     optimization: {
@@ -41,7 +43,7 @@ module.exports = {
           })
         },
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: [
             {loader: 'babel-loader'}

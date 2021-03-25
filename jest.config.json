@@ -1,0 +1,5 @@
+{
+   "verbose": true,
+   "moduleFileExtensions": ["js", "jsx"],
+   "collectCoverage": true
+}

@@ -5,9 +5,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
+    resolve: { extensions: ['.js', '.jsx'] },
     mode: 'development',
     entry: [
-      'babel-polyfill', 'react-hot-loader/patch', './src/index.js'
+      'babel-polyfill', 'react-hot-loader/patch', './src/index.jsx'
     ],
     output: {
       filename: 'bundle.js',

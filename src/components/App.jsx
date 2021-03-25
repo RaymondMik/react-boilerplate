@@ -42,9 +42,8 @@ const App = () => {
      */
     const handleSubmit = (event) => {
         event.preventDefault();
-        const text = textRef;
         // dispatch Redux action
-        dispatch(addText(text.value));
+        dispatch(addText(textRef.current.value));
         // reset form
         event.target.reset();
     };
@@ -53,7 +52,7 @@ const App = () => {
         <div>
             <h2>Secret code generator 😁</h2>
             <form onSubmit={(e) => { handleSubmit(e);}}>
-                <input type="text" ref={(el) => textRef = el} placeholder="write some text here" onChange={(e) => { handleChange(e);}} />
+                <input type="text" ref={textRef} placeholder="write some text here" onChange={(e) => { handleChange(e);}} />
                 <input type="submit" value="Add" />
             </form>
             <p className="preview">{ prevText }</p>
