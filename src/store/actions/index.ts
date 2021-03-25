@@ -4,7 +4,7 @@
  * @param {String} text
  * @returns {Object} 
  */
-export const addText = (text) => {
+export const addText = (text: string) => {
     return {
         type: ADD_TEXT,
         text
