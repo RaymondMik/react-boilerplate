@@ -5,7 +5,7 @@
 <p>Basically all you need to startup a React project with TypeScript and Redux, including Webpack configuration files and Dev Server, Redux store, actions, reducers and a React component with a simple example application.</p>
 
 <h3>Webpack Setup</h3>
-<p>This boilerplate comes with two Webpack setups: development - defined in <code>webpack.dev.config.js</code> and build (actually a production build) - defined in <code>webpack.build.config.js</code>.</p>
+<p>This boilerplate comes with two Webpack setups: development - defined in <code>webpack.dev.config.js</code> and build defined in <code>webpack.build.config.js</code>.</p>
 
 <h3>Get Started</h3>
 <h4>Install the app</h4>
