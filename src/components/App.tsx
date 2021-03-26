@@ -45,7 +45,7 @@ const App = () => {
         event.preventDefault();
 
         // dispatch Redux action
-        dispatch(addText( textRef.current.value));
+        dispatch(addText(textRef.current.value));
         // reset form
         event.target.reset();
     };
