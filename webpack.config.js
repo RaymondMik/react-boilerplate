@@ -4,7 +4,7 @@ const webpackConfig = (env) => {
   }
 
   if (env.env != 'dev' && env.env != 'build') {
-    throw new Error('--env.env must be set either to dev, prod or build');
+    throw new Error('--env.env must be set either to dev, or build');
   }
 
   return require(`./webpack.${env.env}.config.js`);

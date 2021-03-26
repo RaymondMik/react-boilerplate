@@ -5,10 +5,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-    resolve: { extensions: ['.js', '.jsx'] },
+    resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
     mode: 'development',
     entry: [
-      'babel-polyfill', 'react-hot-loader/patch', './src/index.jsx'
+      'babel-polyfill', 'react-hot-loader/patch', './src/index.tsx'
     ],
     output: {
       filename: 'bundle.js',
@@ -38,6 +38,11 @@ module.exports = {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: [ 'babel-loader' ]
+        },
+        {
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          use: [ 'ts-loader' ]
         },
         {
           test: /\.(png|svg|jpg|gif)$/,

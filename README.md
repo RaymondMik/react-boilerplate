@@ -1,5 +1,5 @@
-<h2>Webpack React boilerplate with Redux</h2>
-<p>A basic boilerplate for React projects using Redux which is easy to use, extend and customize.</p>
+<h2>Webpack React boilerplate with TypeScript and Redux</h2>
+<p>A basic boilerplate for React projects using TypeScript and Redux which is easy to use, extend and customize.</p>
 
 <h3>What you will find here</h3>
 <p>Basically all you need to startup a React project with Redux, including Webpack configuration files and Dev Server, Redux store, actions, reducers and a React component with a simple example application.</p>

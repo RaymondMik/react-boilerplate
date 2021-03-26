@@ -6,9 +6,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    resolve: { extensions: ['.js', '.jsx'] },
+    resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
     mode: 'production',
-    entry: './src/index.jsx',
+    entry: './src/index.tsx',
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, './dist'),
@@ -43,11 +43,16 @@ module.exports = {
           })
         },
         {
-          test: /\.(js|jsx)$/,
+          test: /\.js$/,
           exclude: /node_modules/,
           use: [
             {loader: 'babel-loader'}
           ]
+        },
+        {
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          use: [ 'ts-loader' ]
         },
         {
           test: /\.(png|svg|jpg|gif)$/,

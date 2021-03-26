@@ -1,15 +1,16 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hot } from 'react-hot-loader/root';
-import PropTypes from 'prop-types';
 import { addText } from '../store/actions';
 import '../styles/app.sass';
 
+import { DefaultRootState } from "../../types";
+
 const App = () => {
     const dispatch = useDispatch();
-    const { text } = useSelector(state => state);
+    const { text } = useSelector((state: DefaultRootState) => state);
 
-    let textRef = useRef(null);
+    let textRef = useRef<HTMLInputElement | null>(null);
     const [prevText, setPrevText] = useState(null);
    
     /**
@@ -18,7 +19,7 @@ const App = () => {
      * @param {Array} textStrings - The string we want to render.
      * @returns {JSX} lines to be rendered
      */
-    const renderTextLines = (textStrings = []) => {
+    const renderTextLines = (textStrings: string[] = []) => {
         let textHtml = textStrings.map( (text, i) => <li className="text" key={i}>{ text }</li> );
 
         return (
@@ -31,7 +32,7 @@ const App = () => {
      * 
      * @fires setPrevText()
      */
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPrevText(event.target.value);
     };
 
@@ -40,8 +41,9 @@ const App = () => {
      * 
      * @fires addText() action creator
      */
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
+
         // dispatch Redux action
         dispatch(addText(textRef.current.value));
         // reset form
@@ -51,7 +53,7 @@ const App = () => {
     return (
         <div>
             <h2>Secret code generator 😁</h2>
-            <form onSubmit={(e) => { handleSubmit(e);}}>
+            <form onSubmit={(e: React.ChangeEvent<HTMLFormElement>) => { handleSubmit(e);}}>
                 <input type="text" ref={textRef} placeholder="write some text here" onChange={(e) => { handleChange(e);}} />
                 <input type="submit" value="Add" />
             </form>
@@ -60,11 +62,6 @@ const App = () => {
             { renderTextLines(text) }
         </div>
     );
-};
-
-App.propTypes = {
-	text: PropTypes.array,
-    addText: PropTypes.func
 };
 
 export default hot(App);

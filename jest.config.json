@@ -1,5 +1,5 @@
 {
    "verbose": true,
-   "moduleFileExtensions": ["js", "jsx"],
+   "moduleFileExtensions": ["js", "jsx", "ts", "tsx", "json"],
    "collectCoverage": true
 }
