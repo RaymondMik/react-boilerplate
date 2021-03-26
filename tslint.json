@@ -1,6 +1,6 @@
 {
    "defaultSeverity": "error",
-   "extends": ["tslint:latest", "tslint-react"],
+   "extends": ["tslint:latest"],
    "rules": {
      "arrow-parens": false,
      "class-name": true,
